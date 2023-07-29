@@ -21,7 +21,7 @@ class HomeScreen extends ConsumerStatefulWidget {
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   final List<String> cardData = [
-    'Electronics',
+    'electronics',
     'jewelery',
     "men's clothing",
     "women's clothing",
