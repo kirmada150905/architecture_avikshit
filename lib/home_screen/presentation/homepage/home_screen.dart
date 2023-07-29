@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
           widthFactor: 0.5, // Adjust this value to control the card width
           child: GridView.builder(
             shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 8.0,
               mainAxisSpacing: 8.0,
@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               final card = cardData[index];
               return GestureDetector(
-                onTap: () => context.go("/listScreen"),
+                onTap: () => context.go("/home/listScreen"),
                 child: Card(
                   child: Center(
                     child: Text(card),
