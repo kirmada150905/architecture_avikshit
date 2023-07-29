@@ -11,8 +11,12 @@ final GoRouter router = GoRouter(
       builder: (context, state) => LoginScreen(),
     ),
     GoRoute(
-      path: "/home",
-      builder: (context, state) => HomeScreen(),
+      path: "/home/:name/:url",
+      name: 'home',
+      builder: (context, state) => HomeScreen(
+        name: state.pathParameters['name'],
+        imageUrl: state.pathParameters['url'],
+      ),
       routes: [
         GoRoute(
           path: "listScreen",

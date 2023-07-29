@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../common widgets/async_value.dart';
-import '../../../constants/colors.dart';
-import '../../../constants/textstyles.dart';
+
 import '../../data/detail_repo.dart';
 import '../controller/detail_controller.dart';
 import 'list_card_widget.dart';
@@ -51,11 +50,13 @@ class PendingList extends ConsumerWidget {
         } else if (detailList.isEmpty) {
           return const Text('empty');
         }
+        print('testtttttttttttttttttttttt${detailList.length}');
         return ListView.builder(
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           itemCount: detailList.length,
           itemBuilder: (BuildContext context, int index) {
+            print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh${detailList}");
             return ListCard(
               detailModel: detailList[index],
             );

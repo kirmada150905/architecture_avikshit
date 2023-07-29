@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../custom_http_client/custom_exception.dart';
 import '../custom_http_client/custom_http_client.dart';
 import '../custom_http_client/http_method.dart';
 import '../in_memory_store.dart';

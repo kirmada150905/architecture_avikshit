@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:quiver/core.dart';
 
 import '../../../utils/generics/model_factory.dart';
 
