@@ -85,8 +85,26 @@ final w900 = GoogleFonts.poppins(
     fontWeight: FontWeight.w900,
     fontStyle: FontStyle.normal);
 
-final w700 = GoogleFonts.poppins(
+final w700 = GoogleFonts.archivoBlack(
     fontSize: 11,
     color: Colors.black,
     fontWeight: FontWeight.w700,
     fontStyle: FontStyle.normal);
+
+final v400 = GoogleFonts.archivoBlack(
+  fontSize: 11,
+  color: Colors.black,
+  fontWeight: FontWeight.w400,
+);
+
+final v500 = GoogleFonts.archivoBlack(
+  fontSize: 11,
+  color: Colors.black,
+  fontWeight: FontWeight.w500,
+);
+
+final v600 = GoogleFonts.archivoBlack(
+  fontSize: 11,
+  color: Colors.black,
+  fontWeight: FontWeight.w600,
+);

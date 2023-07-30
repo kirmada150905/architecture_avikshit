@@ -19,7 +19,7 @@ class AsyncValueWidget<T> extends StatelessWidget {
     return value.when(
       data: data,
       error: (e, st) =>
-          error != null ? error!(e, st) : Center(child: Text('error')),
+          error != null ? error!(e, st) : const Center(child: Text('error')),
       loading: () => const Center(child: CircularProgressIndicator()),
     );
   }

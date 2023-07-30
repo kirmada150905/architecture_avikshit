@@ -1,7 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../utils/generics/model_factory.dart';
-import '../../utils/generics/service_generic.dart';
+import '../../../utils/generics/model_factory.dart';
+import '../../../utils/generics/service_generic.dart';
+
 import '../data/detail_repo.dart';
 import '../model/detail_model.dart';
 

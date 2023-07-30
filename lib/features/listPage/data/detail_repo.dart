@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../utils/generics/repo_generic.dart';
+import '../../../utils/generics/repo_generic.dart';
+
 import '../model/detail_model.dart';
 
 part 'detail_repo.g.dart';

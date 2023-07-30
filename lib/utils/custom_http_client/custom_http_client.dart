@@ -41,12 +41,7 @@ class CustomHttpClient {
         "\nMETHOD: [$method],\nURL: [$fullPath],\nHEADERS: [$headers],\nSTATUS: [${response.statusCode}]\nBODY:[${response.body}]\nEND");
   }
 
-  Map<String, String> _commonHeaders({
-    bool xAuth = true,
-    bool xOrigin = true,
-    bool xAppVersion = true,
-    bool xAccess = true,
-  }) {
+  Map<String, String> _commonHeaders() {
     Map<String, String> myMap = {};
 
     return myMap;
