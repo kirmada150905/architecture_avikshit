@@ -2,7 +2,6 @@ import 'package:go_router/go_router.dart';
 
 import '../features/homepage/home_screen.dart';
 import '../features/lastpage/last_screen.dart';
-import '../features/listPage/model/detail_model.dart';
 import '../features/listPage/presentation/UI/list_screen.dart';
 
 import '../features/login screen/loginscreen.dart';
@@ -14,28 +13,21 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
-      path: "/home/:name/:url",
+      path: "/home",
       name: 'home',
-      builder: (context, state) => HomeScreen(
-        name: state.pathParameters['name'],
-        imageUrl: state.pathParameters['url'],
-      ),
+      builder: (context, state) => const HomeScreen(),
       routes: [
         GoRoute(
           path: "listScreen",
+          name: 'list',
           builder: (context, state) => const ListScreen(),
           routes: [
             GoRoute(
-                path: 'last',
-                name: "dashboard",
+                path: 'lastScreen',
+                name: "last",
                 builder: (context, state) {
-                  DetailModel args = state.extra as DetailModel;
-                  return LastScreen(detailModel: args);
+                  return const LastScreen();
                 }),
-            // GoRoute(
-            //   path: "lastScreen",
-            //   builder: (context, state) => ListScreen(),
-            // ),
           ],
         ),
       ],

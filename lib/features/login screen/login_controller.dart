@@ -35,23 +35,18 @@ void handleSignIn(BuildContext context, WidgetRef ref) async {
     if (user != null) {
       print(user.displayName);
       print(user.photoURL);
-
-      context.goNamed("home", pathParameters: {
-        'name': user.displayName!,
-        'url': user.photoURL!
-      }); //TODO:
-      // Navigate to the next page and pass the user's display name and photo URL
-      //   Navigator.push(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) => HomeScreen(
-      //         name: user.displayName,
-      //         imageUrl: user.photoURL,
-      //       ),
-      //     ),
-      //   );
+      ref.watch(nameProvider.notifier).state = user.displayName!;
+      ref.watch(imageProvider.notifier).state = user.photoURL!;
+      context.goNamed("home");
     }
   } catch (e) {
     print("Error during Google Sign-In: $e");
   }
 }
+
+final nameProvider = StateProvider<String>((ref) {
+  return '';
+});
+final imageProvider = StateProvider<String>((ref) {
+  return '';
+});

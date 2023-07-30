@@ -19,7 +19,7 @@ class HomeCardWidget extends ConsumerWidget {
     return GestureDetector(
       onTap: () {
         ref.read(categoryId.notifier).state = carddata.name;
-        context.push("/home/:name/:url/listScreen"); //TODO:
+        context.pushNamed("list");
       },
       child: Card(
         child: Container(

@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../constants/colors.dart';
 
 import '../../constants/textstyles.dart';
-import '../listPage/model/detail_model.dart';
 
+import '../listPage/presentation/UI/controller.dart';
 import 'base_container_widget.dart';
 
-class LastScreen extends StatelessWidget {
-  final DetailModel? detailModel;
-  const LastScreen({super.key, required this.detailModel});
+class LastScreen extends ConsumerWidget {
+  const LastScreen({
+    super.key,
+  });
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final detailModel = ref.read(modelProvider.notifier).state;
     return Scaffold(
       backgroundColor: BrandColor.blackColor,
       appBar: AppBar(
@@ -25,7 +28,7 @@ class LastScreen extends StatelessWidget {
           scrollDirection: Axis.vertical,
           child: Column(children: [
             Text(
-              "Product #${detailModel?.id}",
+              "Product #${detailModel.id}",
               style: v500.size20.colorWhite,
             ),
             const SizedBox(
@@ -35,7 +38,7 @@ class LastScreen extends StatelessWidget {
                 width: double.infinity,
                 height: 250,
                 child: Image.network(
-                  detailModel!.image,
+                  detailModel.image,
                   fit: BoxFit.fill,
                 )),
             const SizedBox(
@@ -53,14 +56,14 @@ class LastScreen extends StatelessWidget {
                     children: [
                       BaseContainerWidget(
                         subtitle: 'Price',
-                        mainText: '\u{20B9} ${detailModel!.price}',
+                        mainText: '\u{20B9} ${detailModel.price}',
                         maintextcolor: BrandColor.priceHighlightColor,
                       ),
                       const Spacer(),
                       BaseContainerWidget(
                         subtitle: 'Ratings',
                         mainText:
-                            '${detailModel!.rating.rate} (${detailModel!.rating.count} ratings)',
+                            '${detailModel.rating.rate} (${detailModel.rating.count} ratings)',
                         maintextcolor: Colors.white,
                       ),
                       const SizedBox(
@@ -70,12 +73,12 @@ class LastScreen extends StatelessWidget {
                   ),
                   BaseContainerWidget(
                     subtitle: 'Title',
-                    mainText: detailModel!.title,
+                    mainText: detailModel.title,
                     maintextcolor: Colors.white.withOpacity(0.9),
                   ),
                   BaseContainerWidget(
                     subtitle: 'Description',
-                    mainText: detailModel!.description,
+                    mainText: detailModel.description,
                     maintextcolor: Colors.white.withOpacity(0.9),
                   ),
                   const SizedBox(

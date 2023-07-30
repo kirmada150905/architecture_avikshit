@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../constants/textstyles.dart';
-import '../../../lastpage/last_screen.dart';
-import '../../model/detail_model.dart';
 
-class ListCard extends StatelessWidget {
+import '../../model/detail_model.dart';
+import 'controller.dart';
+
+class ListCard extends ConsumerWidget {
   final DetailModel detailModel;
   const ListCard({super.key, required this.detailModel});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 12),
       child: GestureDetector(
         onTap: () {
-          //context.pushNamed('/listScreen/model', extra: detailModel);
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>
-                  LastScreen(detailModel: detailModel), //TODO:
-            ),
-          );
+          ref.watch(modelProvider.notifier).state = detailModel;
+          context.pushNamed('last');
         },
         child: Container(
           decoration: BoxDecoration(

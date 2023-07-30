@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../constants/colors.dart';
 import '../../constants/textstyles.dart';
 
+import '../login screen/login_controller.dart';
 import 'home_card_widget.dart';
 
 class CategoryData {
@@ -22,10 +23,7 @@ final List<CategoryData> cardData = [
 ];
 
 class HomeScreen extends ConsumerStatefulWidget {
-  final String? name;
-  final String? imageUrl;
-  const HomeScreen({required this.name, required this.imageUrl, Key? key})
-      : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   ConsumerState<HomeScreen> createState() => _HomeScreenState();
@@ -34,6 +32,8 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final name = ref.watch(nameProvider.notifier).state;
+    final imageUrl = ref.watch(imageProvider.notifier).state;
     return Scaffold(
       backgroundColor: BrandColor.blackColor,
       appBar: AppBar(
@@ -67,7 +67,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   CircleAvatar(
                     radius: 30.0,
                     backgroundImage: NetworkImage(
-                      widget.imageUrl!,
+                      imageUrl,
                     ),
                   ),
                   const Spacer(),
@@ -78,7 +78,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 style: v500.size20.copyWith(
                   color: const Color.fromARGB(255, 125, 191, 246),
                 )),
-            Text("${widget.name!.split(' ').first}!",
+            Text("${name.split(' ').first}!",
                 //style: w800.size36.colorWhite,
                 style: v500.size20.copyWith(
                   color: const Color.fromARGB(255, 125, 191, 246),
