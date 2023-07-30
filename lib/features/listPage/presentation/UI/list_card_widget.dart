@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../constants/textstyles.dart';
 
 import '../../model/detail_model.dart';
-import 'controller.dart';
+import '../controller/detail_controller.dart';
 
 class ListCard extends ConsumerWidget {
   final DetailModel detailModel;

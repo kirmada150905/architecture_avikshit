@@ -38,74 +38,79 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       backgroundColor: BrandColor.blackColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
-              child: Row(
-                children: [
-                  const Spacer(),
-                  const CircleAvatar(
-                    radius: 30.0,
-                    backgroundImage: AssetImage(
-                      PngAssets.appLogo,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
+                child: Row(
+                  children: [
+                    const Spacer(),
+                    const CircleAvatar(
+                      radius: 30.0,
+                      backgroundImage: AssetImage(
+                        PngAssets.appLogo,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text('X',
-                      style: w800.size15.copyWith(
-                        color: const Color.fromARGB(255, 125, 191, 246),
-                      )),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  CircleAvatar(
-                    radius: 30.0,
-                    backgroundImage: NetworkImage(
-                      imageUrl,
+                    const SizedBox(
+                      width: 10,
                     ),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-            ),
-            Text("Welcome to ShopLy",
-                style: v500.size20.copyWith(
-                  color: const Color.fromARGB(255, 125, 191, 246),
-                )),
-            Text("${name.split(' ').first}!",
-                //style: w800.size36.colorWhite,
-                style: v500.size20.copyWith(
-                  color: const Color.fromARGB(255, 125, 191, 246),
-                )),
-            const SizedBox(
-              height: 50,
-            ),
-            Text("Select Category ", style: v500.size30.colorWhite),
-            const SizedBox(
-              height: 40,
-            ),
-            FractionallySizedBox(
-              widthFactor: 0.8,
-              child: GridView.builder(
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 8.0,
-                  mainAxisSpacing: 8.0,
+                    Text('X',
+                        style: w800.size15.copyWith(
+                          color: const Color.fromARGB(255, 125, 191, 246),
+                        )),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    CircleAvatar(
+                      radius: 30.0,
+                      backgroundImage: NetworkImage(
+                        imageUrl,
+                      ),
+                    ),
+                    const Spacer(),
+                  ],
                 ),
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return HomeCardWidget(carddata: cardData[index]);
-                },
               ),
-            ),
-          ],
+              Text("Welcome to ShopLy",
+                  style: v500.size20.copyWith(
+                    color: const Color.fromARGB(255, 125, 191, 246),
+                  )),
+              Text("${name.split(' ').first}!",
+                  //style: w800.size36.colorWhite,
+                  style: v500.size20.copyWith(
+                    color: const Color.fromARGB(255, 125, 191, 246),
+                  )),
+              const SizedBox(
+                height: 50,
+              ),
+              Text("Select Category ", style: v500.size30.colorWhite),
+              const SizedBox(
+                height: 40,
+              ),
+              FractionallySizedBox(
+                widthFactor: 0.8,
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  physics: const BouncingScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 8.0,
+                    mainAxisSpacing: 8.0,
+                  ),
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return HomeCardWidget(carddata: cardData[index]);
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

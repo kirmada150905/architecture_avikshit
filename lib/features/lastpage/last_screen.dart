@@ -5,7 +5,7 @@ import '../../constants/colors.dart';
 
 import '../../constants/textstyles.dart';
 
-import '../listPage/presentation/UI/controller.dart';
+import '../listPage/presentation/controller/detail_controller.dart';
 import 'base_container_widget.dart';
 
 class LastScreen extends ConsumerWidget {

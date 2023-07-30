@@ -11,7 +11,8 @@ void main() async {
   await Firebase.initializeApp();
   runApp(useDevicePreview
       ? DevicePreview(
-          enabled: !kReleaseMode, builder: (context) => const MyApp())
+          enabled: !kReleaseMode,
+          builder: (context) => const ProviderScope(child: MyApp()))
       : const ProviderScope(child: MyApp()));
 }
 
