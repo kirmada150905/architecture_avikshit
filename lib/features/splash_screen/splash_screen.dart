@@ -17,6 +17,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
+    /*
+    show splash screen for 2 seconds and go to login screen
+    */
     Timer(const Duration(seconds: 2), () {
       context.pushReplacement('/login');
     });
@@ -42,6 +45,9 @@ class _SplashScreenState extends State<SplashScreen> {
               ],
             ),
           ),
+          /*
+          just use mainAxisAlignment: MainAxisAlignment.spacebetween in the column after wrapping it in Expanded?
+          */
           Expanded(child: Container()),
           Row(
             children: [

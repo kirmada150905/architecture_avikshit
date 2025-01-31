@@ -21,6 +21,12 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 void handleSignIn(BuildContext context, WidgetRef ref) async {
   try {
     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+    
+    /* 
+      set MyProvider state to true to display 
+      login button instead of circle progress indicator
+      in LoginScreen
+    */
     if (googleUser == null) return; // User canceled sign-in
     final GoogleSignInAuthentication googleAuth =
         await googleUser.authentication;
@@ -35,6 +41,8 @@ void handleSignIn(BuildContext context, WidgetRef ref) async {
     if (user != null) {
       print(user.displayName);
       print(user.photoURL);
+      
+      /* change to ref.read for updating */
       ref.watch(nameProvider.notifier).state = user.displayName!;
       ref.watch(imageProvider.notifier).state = user.photoURL!;
       context.goNamed("home");

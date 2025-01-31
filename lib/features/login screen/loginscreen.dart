@@ -48,6 +48,11 @@ class LoginScreen extends ConsumerWidget {
               SizedBox(
                 child: GestureDetector(
                   onTap: () {
+                    /* 
+                      change to ref.read() inside callbacks
+
+                      
+                    */
                     ref.watch(myProvider.notifier).updateValue(false);
                     handleSignIn(context, ref);
                   },
